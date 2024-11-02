@@ -10,7 +10,7 @@ class NewSLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => NewsCubit(),
+      create: (BuildContext context) => NewsCubit()..getBusiness(),
       child: BlocConsumer<NewsCubit , NewsStates>(
         listener: (context , state) {},
         builder: (context , state) {
@@ -29,25 +29,6 @@ class NewSLayout extends StatelessWidget {
                     ),
                 ),
               ],
-            ),
-            floatingActionButton: FloatingActionButton(
-              onPressed: (){
-                DioHelper.getData(
-                    url: 'v2/top-headlines',
-                    query: {
-                      'country':'us',
-                      'category':'business',
-                      'apiKey':'3b40aa901cce462595a85ff003e978d9',
-                    },
-                ).then((value) {
-                  print(value.data.toString());
-                }).catchError((error){
-                  print(error.toString());
-                });
-              },
-              child: Icon(
-                Icons.add,
-              ),
             ),
             body: cubit.screens[cubit.currentIndex],
             bottomNavigationBar: BottomNavigationBar(
