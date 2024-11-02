@@ -37,6 +37,9 @@ class MyApp extends StatelessWidget {
             color: Colors.black,
           ),
         ),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Colors.red,
+        ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           selectedItemColor: Colors.red,
             elevation: 20.0,

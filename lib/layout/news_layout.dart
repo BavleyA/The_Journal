@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:thejournal/shared/cubit/cubit.dart';
 import 'package:thejournal/shared/cubit/states.dart';
+import 'package:thejournal/shared/network/remote/dio_helper.dart';
 
 class NewSLayout extends StatelessWidget {
   const NewSLayout({super.key});
@@ -28,6 +29,25 @@ class NewSLayout extends StatelessWidget {
                     ),
                 ),
               ],
+            ),
+            floatingActionButton: FloatingActionButton(
+              onPressed: (){
+                DioHelper.getData(
+                    url: 'v2/top-headlines',
+                    query: {
+                      'country':'us',
+                      'category':'business',
+                      'apiKey':'3b40aa901cce462595a85ff003e978d9',
+                    },
+                ).then((value) {
+                  print(value.data.toString());
+                }).catchError((error){
+                  print(error.toString());
+                });
+              },
+              child: Icon(
+                Icons.add,
+              ),
             ),
             body: cubit.screens[cubit.currentIndex],
             bottomNavigationBar: BottomNavigationBar(
