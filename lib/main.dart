@@ -1,8 +1,14 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:thejournal/layout/news_layout.dart';
+import 'package:thejournal/shared/bloc_observer.dart';
+import 'package:thejournal/shared/network/remote/dio_helper.dart';
 
 void main() {
+
+  Bloc.observer = MyBlocObserver();
+  DioHelper.init();
   runApp(const MyApp());
 }
 
