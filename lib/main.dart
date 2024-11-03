@@ -10,11 +10,12 @@ import 'package:thejournal/shared/cubit/appcubitstates.dart';
 import 'package:thejournal/shared/network/local/cache_helper.dart';
 import 'package:thejournal/shared/network/remote/dio_helper.dart';
 
-void main() {
-
+void main() async
+{
+  WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
   DioHelper.init();
-  CacheHelper.init();
+  await CacheHelper.init();
   runApp(const MyApp());
 }
 
