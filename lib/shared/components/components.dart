@@ -3,6 +3,13 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+
+void navigateTo(context,Widget) => Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => Widget),
+);
+
+
 Widget buildArticleItem(articles ,context) => Padding(
   padding: const EdgeInsets.all(20.0),
   child: Row(

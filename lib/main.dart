@@ -7,6 +7,7 @@ import 'package:thejournal/layout/news_layout.dart';
 import 'package:thejournal/shared/bloc_observer.dart';
 import 'package:thejournal/shared/cubit/appcubit.dart';
 import 'package:thejournal/shared/cubit/appcubitstates.dart';
+import 'package:thejournal/shared/cubit/cubit.dart';
 import 'package:thejournal/shared/network/local/cache_helper.dart';
 import 'package:thejournal/shared/network/remote/dio_helper.dart';
 
@@ -28,10 +29,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) => AppCubit(),/*..ChangeAppMode(
-        fromShared: isDark,
-      ),*/
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => NewsCubit()..getBusiness()),
+        BlocProvider( create: (BuildContext context) => AppCubit(),),
+      ],
       child: BlocConsumer<AppCubit , AppStates>(
         listener: (context ,states) {},
         builder: (context ,states) {
