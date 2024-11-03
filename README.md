@@ -59,5 +59,17 @@ The application supports both light and dark themes to enhance user experience:
 - **Light Theme**: Ideal for well-lit environments, offering high readability with bright interface colors.
 - **Dark Theme**: Reduces eye strain in low-light conditions, with a darker color palette for better focus and comfort.
 
+## Contributing
+
+Contributions are welcome! If you'd like to contribute:
+
+1. **Fork the repository**.
+2. **Create a branch** (`git checkout -b feature/YourFeature`).
+3. **Commit your changes** (`git commit -m 'Add some feature'`).
+4. **Push to the branch** (`git push origin feature/YourFeature`).
+5. **Open a pull request**.
+
+Please ensure your code follows the existing code style and includes necessary documentation.
+
 
    
