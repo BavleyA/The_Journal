@@ -12,20 +12,26 @@ import 'package:thejournal/shared/network/remote/dio_helper.dart';
 
 void main() async
 {
-  WidgetsFlutterBinding.ensureInitialized();
+  //WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
   DioHelper.init();
-  await CacheHelper.init();
-  runApp(const MyApp());
+  //await CacheHelper.init();
+
+  //bool? isDark = CacheHelper.getData(key: 'isDark');
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+
+  //final bool isDark;
+  //MyApp(this.isDark);
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => AppCubit(),
+      create: (BuildContext context) => AppCubit(),/*..ChangeAppMode(
+        fromShared: isDark,
+      ),*/
       child: BlocConsumer<AppCubit , AppStates>(
         listener: (context ,states) {},
         builder: (context ,states) {
