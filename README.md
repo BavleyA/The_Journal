@@ -9,7 +9,6 @@ A feature-rich news application built using **Flutter**, integrated with **Cubit
 - [State Management](#state-management)
 - [Themes](#themes)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
