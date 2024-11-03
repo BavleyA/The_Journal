@@ -1,8 +1,9 @@
+
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget buildArticleItem(articles) => Padding(
+Widget buildArticleItem(articles ,context) => Padding(
   padding: const EdgeInsets.all(20.0),
   child: Row(
     children: [
@@ -27,10 +28,7 @@ Widget buildArticleItem(articles) => Padding(
             children: [
               Expanded(
                 child: Text('${articles['title']}',
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: Theme.of(context).textTheme.bodyLarge,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -52,11 +50,11 @@ Widget buildArticleItem(articles) => Padding(
   ),
 );
 
-Widget articleBuilder (list) => ConditionalBuilder(
+Widget articleBuilder (list ,context) => ConditionalBuilder(
     condition: list.length > 0,
     builder: (context) => ListView.separated(
       physics: BouncingScrollPhysics(),
-      itemBuilder: (context,index) => buildArticleItem(list[index]),
+      itemBuilder: (context,index) => buildArticleItem(list[index] ,context),
       separatorBuilder: (context,index) => Padding(
         padding: const EdgeInsets.symmetric(
           vertical: 8.0,
