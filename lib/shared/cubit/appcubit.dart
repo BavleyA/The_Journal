@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:thejournal/shared/network/local/cache_helper.dart';
 import 'appcubitstates.dart';
 
 class AppCubit extends Cubit<AppStates>
@@ -15,7 +16,9 @@ class AppCubit extends Cubit<AppStates>
   void ChangeAppMode()
   {
     isDark = !isDark;
-    emit(AppChangeModeState());
+    CacheHelper.putData(key: 'isDark', value: isDark).then((value) {
+      emit(AppChangeModeState());
+    });
   }
 
 }

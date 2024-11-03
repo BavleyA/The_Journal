@@ -7,12 +7,14 @@ import 'package:thejournal/layout/news_layout.dart';
 import 'package:thejournal/shared/bloc_observer.dart';
 import 'package:thejournal/shared/cubit/appcubit.dart';
 import 'package:thejournal/shared/cubit/appcubitstates.dart';
+import 'package:thejournal/shared/network/local/cache_helper.dart';
 import 'package:thejournal/shared/network/remote/dio_helper.dart';
 
 void main() {
 
   Bloc.observer = MyBlocObserver();
   DioHelper.init();
+  CacheHelper.init();
   runApp(const MyApp());
 }
 
