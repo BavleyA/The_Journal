@@ -28,6 +28,14 @@ class NewSLayout extends StatelessWidget {
                       Icons.search,
                     ),
                 ),
+
+                IconButton(
+                  onPressed: (){},
+                  icon: Icon(
+                    Icons.brightness_4_outlined,
+                  ),
+                ),
+
               ],
             ),
             body: cubit.screens[cubit.currentIndex],

@@ -47,6 +47,8 @@ class MyApp extends StatelessWidget {
             type: BottomNavigationBarType.fixed,
         ),
       ),
+      darkTheme: ThemeData(),
+      themeMode: ThemeMode.dark,
       home: NewSLayout(),
     );
   }
